@@ -1,1 +1,3 @@
-print('col is gae')
+import pygame
+import math
+import random
