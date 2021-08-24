@@ -10,4 +10,5 @@ square = pg.Surface((20, 20)) #idk lol
 square.fill((255, 255, 255)) #screen color, RGB
 rect = square.get_rect() #creates a square
 
+#this is the loop we'll code inside
 while true 
