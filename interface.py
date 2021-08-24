@@ -14,6 +14,7 @@ rect = square.get_rect() #creates a square
 
 #this is the loop we'll code inside
 while True:
-    event = pg.event.poll()
-    if event.type == pg.QUIT:
-        exit()
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            exit()
+    
