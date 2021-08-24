@@ -10,7 +10,4 @@ square = pg.Surface((20, 20)) #idk lol
 square.fill((255, 255, 255)) #screen color, RGB
 rect = square.get_rect() #creates a square
 
-#to end the game 
-screen.fill((0, 0, 0))
-screen.blit(square, rect)
-pg.display.flip()
+while true 
