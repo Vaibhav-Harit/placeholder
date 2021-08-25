@@ -1,4 +1,3 @@
-#DO NOT RUN THE CODE
 import pygame as pg
 import random
 a = 0
