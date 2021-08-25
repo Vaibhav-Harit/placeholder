@@ -1,3 +1,14 @@
+#JUST
+#FOR
+#REFFERENCE
+
+#NOT
+#THE
+#GAME
+#CODE
+
+
+
 import pygame as pg
 
 # im not gonna explain this
