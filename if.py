@@ -23,4 +23,3 @@ while True:
     screen.fill((0, 0, 0))
     screen.blit(square, rect)
     pg.display.flip()
-    
