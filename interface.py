@@ -17,8 +17,8 @@ while True:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             exit()
-    rect.x = 250
-    rect.y = 250
+    rect.x = 240
+    rect.y = 240
     screen.fill((0, 0, 0))
     screen.blit(square, rect)
     pg.display.flip()
