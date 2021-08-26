@@ -40,8 +40,8 @@ Somethings you should know about pygame:
         -In this grid system the coords (0,0) are located at the top left of the pygame window
     -We need to draw or 'blit' stuff on the screen for each frame, in esscence like the process of making a hand drawn 2d animation
 '''
-num = lambda : random.randint(0,255)
-s = 1
+
+speed = 10
 while True: 
     clock.tick(60) # This is the time delay for each frame, its set to 60 milisecs here, if you remove this delay ur pc gonna heaet up lol
     for event in pg.event.get():
@@ -52,23 +52,18 @@ while True:
     if pressed[pg.K_UP]:# As i mentioned above pressed is just a list of True and falses(or 1s and 0s) pg.K_<name> is an variable that already exists in
         # the pygame library, pg.K_<name> where K_ means key and <name> is the name of the key is just number which represents the index of the key being
         # pressed in the list
-        rect.y -= s
-        square.fill((num(), num(), num()))
+        rect.y -= speed
     if pressed[pg.K_DOWN]:
-        rect.y += s
-        square.fill((num(), num(), num()))
+        rect.y += speed
     if pressed[pg.K_LEFT]:
-        rect.x -= s
-        square.fill((num(), num(), num()))
+        rect.x -= speed
     if pressed[pg.K_RIGHT]:
-        rect.x += s
-        square.fill((num(), num(), num()))
+        rect.x += speed
 
-    # screen.fill((0, 0, 0)) # background (uses RGB)
+    screen.fill((0, 0, 0)) # background (uses RGB)
     screen.blit(square, rect)# the first arguement (square, which you can see we made above) contains info on the image we are about to draw
     # ,which is a white square, the second arguement rect is the position in which we are going to draw said square
+    multlines(f'X :   {rect.x}\nY :  {rect.y}\n', pg.font.Font('freesansbold.ttf',25), 25) # add this before display.update if u wanna see the x, y pos of the square
     pg.display.update()# updates the frame
 
 
-
-multlines(f'X :   {rect.x}\nY :  {rect.y}\n', pg.font.Font('freesansbold.ttf',25), 25) # add this before display.update if u wanna see the x, y pos of the square
