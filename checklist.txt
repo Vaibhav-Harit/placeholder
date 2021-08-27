@@ -1,5 +1,13 @@
+I need each of the tile sprites individually : NOT DONE 
+    - implemention : NOT DONE
+    - map moves : NOT DONE
+    - working collison with walls : NOT DONE
+
+
 add character sprite in main.py - NOT DONE (col)
     > add commands for moving the sprite - NOT DONE (AJ)
+
+
 set-up start menu frame - NOT DONE (col)
     > change the sprites to detailed sprites - NOT DONE (col)
     > set-up the interactive start menu frame - NOT DONE (col)

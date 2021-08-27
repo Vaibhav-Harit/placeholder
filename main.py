@@ -1,7 +1,7 @@
 import pygame as pg
 import math
 import random
-
+import assets
 
 pg.init()
 #setting up the basics cuz these nubs no read tutorial
@@ -13,7 +13,7 @@ pg.display.set_caption("NOT DECIDED")
    #icon later
 
 #Player
-
+charac_sprite = pg.image.load('assets//dungeon_tiles.png')
 
 #def
 
@@ -26,9 +26,8 @@ while running:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
-
 # RGB FOR DISPLAY (CHANGE IT AS YOU WANT)
-            screen.fill((129, 129, 129))
+    screen.fill((0, 0, 0))
 
           
-            pg.display.update()
+    pg.display.update()

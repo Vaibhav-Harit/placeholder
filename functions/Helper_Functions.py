@@ -14,4 +14,7 @@ def y_center(screen_heigth, object_height):
     vertical_center = center_of_screen_vertical - half_of_object_height
     return vertical_center
 
-
+# Returns central coordinates of the object in tuple form
+def center_coords(screen_wh : tuple, player_wh : tuple):
+    center = (screen_wh[0]/2 - player_wh[0], screen_wh[1] - player_wh[1])
+    return center
