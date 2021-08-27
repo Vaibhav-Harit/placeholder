@@ -27,7 +27,7 @@ while running:
     clock.tick(60) #DO NOT REMOVE
     for event in pg.event.get():
         if event.type == pg.QUIT:
-            running = False
+            running = False    
 
     screen.fill((0, 0, 0)) #screen color RGB
 
