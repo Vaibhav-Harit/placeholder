@@ -33,6 +33,3 @@ while running:
 
     player()
     pg.display.update()
-
-
-print ('code works')
