@@ -25,3 +25,4 @@ while running:
     screen.blit(square, rect)
     pg.display.flip()
 
+print ('code works')
