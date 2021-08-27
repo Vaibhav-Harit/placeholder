@@ -13,13 +13,15 @@ rect = square.get_rect() #creates a square
 
 
 #this is the loop we'll code inside
-while True:
+running = True
+while running:
     clock.tick(60)#DO NOT REMOVE THIS 
     for event in pg.event.get():
         if event.type == pg.QUIT:
-            exit() #quits the pygame window when we click on X 
+            running = False #quits the pygame window when we click on X 
     rect.x = 240
     rect.y = 240
     screen.fill((0, 0, 0))
     screen.blit(square, rect)
     pg.display.flip()
+
