@@ -2,8 +2,6 @@ import pygame as pg
 import math
 import assets
 
-sprite_1 = pg.image.load("dungeon_tiles.png")
-
 
 class Player(object):
     #initialization, will automatically run when you do a new instance
@@ -33,7 +31,6 @@ class Player(object):
     def activate_skill():
         pass
 
-    def draw()
+    def draw():
         pg.blit(self.sprite, self.position )
     
-    charac_1 = Player(10, 10, 10, sprite_1, (250,250), 0)

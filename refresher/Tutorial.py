@@ -9,6 +9,7 @@
 
 
 
+from Functions.Helper_Functions import center_coords
 import pygame as pg
 import random
 
@@ -65,5 +66,4 @@ while True:
     # ,which is a white square, the second arguement rect is the position in which we are going to draw said square
     multlines(f'X :   {rect.x}\nY :  {rect.y}\n', pg.font.Font('freesansbold.ttf',25), 25) # add this before display.update if u wanna see the x, y pos of the square
     pg.display.update()# updates the frame
-
 
