@@ -1,9 +1,9 @@
-import pygame as pg
+import pygame
 import math
 import random
 
 
-pg.init()
+pygame.init()
 
 # Title/Icon (Nothing is Decided)
 pygame.display.set_caption("NOT DECIDED") 
@@ -20,7 +20,7 @@ pygame.display.set_caption("NOT DECIDED")
 running = True
 while running:
     clock.tick(60) #DO NOT REMOVE
-    for event in pg.event.get():
+    for event in pygame.event.get():
         if event.type == pg.QUIT:
             running = False
 
