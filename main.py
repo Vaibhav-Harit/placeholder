@@ -5,13 +5,18 @@ import random
 # initialize pygame (Check all the work greed - AJ)
 pygame.init()
 
-# screen
+# screen (Not Decided Too)
 screen=pygame.display.set_mode((800, 600))
 
-# Title
+# Title/Icon (Nothing is Decided)
 pygame.display.set_caption("NOT DECIDED")
+icon = pygame.image.load('-')
+pygame.display.set_icon(icon)
 
-# loop
+#Player
+
+
+# loop (specially check this)
 running = True
 while running:
     for event in pygame.event.get():
@@ -19,5 +24,5 @@ while running:
             running = False
 
             # RGB FOR DISPLAY (CHANGE IT AS YOU WANT)
-            screen.fill((129, 129, 129))
+            screen.fill((0, 0, 0))
             pygame.display.update()
