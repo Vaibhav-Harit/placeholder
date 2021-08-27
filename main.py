@@ -1,3 +1,4 @@
+from functions.Helper_Functions import center_coords
 import pygame as pg
 import math
 import random
@@ -16,7 +17,8 @@ pg.display.set_caption("NOT DECIDED")
 charac_sprite = pg.image.load('assets//dungeon_tiles.png')
 
 #def
-
+def player():
+    screen.blit(charac_sprite, center_coords((1350, 700), (50, 50)))
 
 
 # loop (specially check this)
