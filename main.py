@@ -10,7 +10,7 @@ clock = pg.time.Clock()
 screen = pg.display.set_mode([1350, 700])
 
 # Title/Icon (Nothing is Decided)
-pg.display.set_caption("NOT DECIDED") 
+pg.display.set_caption("NOT DECIDED")
    #icon later
 
 #Player
