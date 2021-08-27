@@ -9,13 +9,14 @@ pygame.init()
 screen=pygame.display.set_mode((800, 600))
 
 # Title/Icon (Nothing is Decided)
-pygame.display.set_caption("NOT DECIDED")
-icon = pygame.image.load('-')
-pygame.display.set_icon(icon)
+pygame.display.set_caption("NOT DECIDED") 
+   #icon later
 
 #Player
-square = pg.Surface((20, 20)) #creates a surface with a given width and height
-rect = square.get_rect() #creates a square
+
+
+#def
+
 
 
 # loop (specially check this)
@@ -25,9 +26,8 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-    rect.x = 240
-    rect.y = 240 
-
-            # RGB FOR DISPLAY (CHANGE IT AS YOU WANT)
+# RGB FOR DISPLAY (CHANGE IT AS YOU WANT)
             screen.fill((0, 0, 0))
+
+          
             pygame.display.update()
