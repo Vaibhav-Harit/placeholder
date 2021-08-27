@@ -14,11 +14,12 @@ pg.display.set_caption("NOT DECIDED")
    #icon later
 
 #Player
-charac_sprite = pg.image.load('assets//dungeon_tiles.png')
+charac_sprite = pg.image.load('assets//Character_sprite_placeholder.png')
 
 #def
 def player():
     screen.blit(charac_sprite, center_coords((1350, 700), (50, 50)))
+
 
 #Game loop
 running = True
@@ -32,3 +33,5 @@ while running:
 
           
     pg.display.update()
+
+print ('code works')
