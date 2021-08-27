@@ -28,7 +28,7 @@ while running:
             running = False
 
 # RGB FOR DISPLAY (CHANGE IT AS YOU WANT)
-            screen.fill((0, 0, 0))
+            screen.fill((129, 129, 129))
 
           
             pg.display.update()
