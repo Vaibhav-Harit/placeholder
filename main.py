@@ -14,6 +14,8 @@ icon = pygame.image.load('-')
 pygame.display.set_icon(icon)
 
 #Player
+square = pg.Surface((20, 20)) #creates a surface with a given width and height
+rect = square.get_rect() #creates a square
 
 
 # loop (specially check this)
@@ -22,6 +24,9 @@ while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+
+    rect.x = 240
+    rect.y = 240 
 
             # RGB FOR DISPLAY (CHANGE IT AS YOU WANT)
             screen.fill((0, 0, 0))
