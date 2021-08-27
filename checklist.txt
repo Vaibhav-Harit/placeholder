@@ -4,7 +4,7 @@ I need each of the tile sprites individually : NOT DONE
     - working collison with walls : NOT DONE
 
 
-add character sprite in main.py - NOT DONE (col)
+add character sprite in main.py - DONE
     > add commands for moving the sprite - NOT DONE (AJ)
 
 
