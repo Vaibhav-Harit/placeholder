@@ -20,16 +20,15 @@ charac_sprite = pg.image.load('assets//dungeon_tiles.png')
 def player():
     screen.blit(charac_sprite, center_coords((1350, 700), (50, 50)))
 
-
-# loop (specially check this)
+#Game loop
 running = True
 while running:
     clock.tick(60) #DO NOT REMOVE
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False
-# RGB FOR DISPLAY (CHANGE IT AS YOU WANT)
-    screen.fill((0, 0, 0))
+
+    screen.fill((0, 0, 0)) #screen color RGB
 
           
     pg.display.update()
