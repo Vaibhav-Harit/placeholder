@@ -1,16 +1,20 @@
 import pygame as pg
 import random
-a = 0
+import math
+import assets
+from functions.Helper_Functions import *
 
 pg.init()
 
+
+
 #setting up the pygame window
 clock=pg.time.Clock() 
-screen = pg.display.set_mode([500, 500]) #screen size
-square = pg.Surface((20, 20)) #creates a surface with a given width and height
-square.fill((255, 255, 255)) #screen color, RGB
-rect = square.get_rect() #creates a square
+screen = pg.display.set_mode([1350, 700]) #screen size
 
+#variables
+c_sprite = pg.image.load('assets//Character_sprite_placeholder.png')
+play_sprite = pg.image.load('assets//play_sprite.png')
 
 #this is the loop we'll code inside
 running = True
@@ -19,10 +23,13 @@ while running:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False #quits the pygame window when we click on X 
-    rect.x = 240
-    rect.y = 240
+
+    
+
     screen.fill((0, 0, 0))
-    screen.blit(square, rect)
     pg.display.flip()
+
+
+
 
 print ('code works')
