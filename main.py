@@ -21,7 +21,7 @@ running = True
 while running:
     clock.tick(60) #DO NOT REMOVE
     for event in pygame.event.get():
-        if event.type == pg.QUIT:
+        if event.type == pygame.QUIT:
             running = False
 
 # RGB FOR DISPLAY (CHANGE IT AS YOU WANT)
