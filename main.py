@@ -14,7 +14,7 @@ pg.display.set_caption("NOT DECIDED")
    #icon later
 
 #Player
-charac_sprite = pg.image.load('assets//dungeon_tiles.png')
+charac_sprite = pg.image.load("assets//dungeon_tiles.png")
 
 #def
 def player():
