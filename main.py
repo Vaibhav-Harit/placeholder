@@ -18,8 +18,8 @@ test_player = Player(charac_sprite, (sc_width, sc_height), 10, 10, 10)
 
 #def vel,x and y
 vel = 5
-x = test_player.position[0]
-y = test_player.position[1]
+#x = int(test_player.position[0])
+#y = int(test_player.position[1])
 
 #Game loop
 running = True
@@ -32,13 +32,13 @@ while running:
     #Key Presses
     keys = pg.key.get_pressed()
     if keys[pg.K_LEFT]:
-        x -= vel        
+        test_player.update_position(-1 * vel, 0)
     if keys[pg.K_RIGHT]:
-        x += vel
+        test_player.update_position(vel, 0)
     if keys[pg.K_UP]:
-        y -= vel
+        test_player.update_position(0, -1 * vel)
     if keys[pg.K_DOWN]:    
-        y += vel
+        test_player.update_position(0, vel)
 
 
     screen.fill((0, 0, 0)) #screen color RGB
