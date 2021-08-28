@@ -1,36 +1,36 @@
 import pygame as pg 
-import math
-import assets
+from functions.Helper_Functions import *
 
 
 class Player(object):
     #initialization, will automatically run when you do a new instance
-    def __init__(self, pwr, spd, defense, sprite, position, direction):
+    def __init__(self, sprite : pg.image, screen_wh : tuple, pwr : int, spd : int, defense : int):
         self.power = pwr
         self.speed = spd
         self.defense = defense
         self.sprite = sprite
-        self.position = position
-        self.direction = direction
+        self.center = center_coords(screen_wh, (sprite.get_width(), sprite.get_height()))
 
-    def attack():
+    def render(self, screen : pg.display):
+        screen.blit(self.sprite, self.center)
+
+    def attack(self, ):
         pass
 
-    def sprint():
+    def sprint(self, ):
         pass
 
-    def move():
+    def move(self, ):
         pass
 
-    def block():
+    def block(self, ):
         pass
 
-    def pick_up():
+    def pick_up(self, ):
         pass
 
-    def activate_skill():
+    def activate_skill(self, ):
         pass
 
-    def draw():
-        pg.blit(self.sprite, self.position )
+
     

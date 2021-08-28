@@ -1,10 +1,8 @@
-from functions.Helper_Functions import center_coords
 import pygame as pg
-import math
-import random
-import assets
+from functions import *
 
 pg.init()
+
 #setting up the basics cuz these nubs no read tutorial
 clock = pg.time.Clock()
 sc_width = 600
@@ -16,12 +14,7 @@ pg.display.set_caption("NOT DECIDED")
 
 #Player
 charac_sprite = pg.image.load('assets//Character_sprite_placeholder.png')
-ch_width = charac_sprite.get_width()
-ch_height = charac_sprite.get_height()
-
-#def
-def player():
-    screen.blit(charac_sprite, center_coords((sc_width, sc_height), (ch_width, ch_height)))
+test_player = Player(charac_sprite, (sc_width, sc_height), 10, 10, 10)
 
 
 #Game loop
@@ -32,7 +25,8 @@ while running:
         if event.type == pg.QUIT:
             running = False    
 
+
     screen.fill((0, 0, 0)) #screen color RGB
 
-    player()
+    test_player.render(screen)
     pg.display.update()
