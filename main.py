@@ -18,6 +18,8 @@ test_player = Player(charac_sprite, (sc_width, sc_height), 10, 10, 10)
 
 #def vel,x and y
 vel = 5
+x = test_player.position[0]
+y = test_player.position[1]
 
 #Game loop
 running = True

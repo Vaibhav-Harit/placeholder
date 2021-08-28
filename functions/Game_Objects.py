@@ -9,10 +9,10 @@ class Player(object):
         self.speed = spd
         self.defense = defense
         self.sprite = sprite
-        self.center = center_coords(screen_wh, (sprite.get_width(), sprite.get_height()))
+        self.position = center_coords(screen_wh, (sprite.get_width(), sprite.get_height()))
 
     def render(self, screen : pg.display):
-        screen.blit(self.sprite, self.center)
+        screen.blit(self.sprite, self.position)
 
     def attack(self, ):
         pass
