@@ -7,18 +7,21 @@ import assets
 pg.init()
 #setting up the basics cuz these nubs no read tutorial
 clock = pg.time.Clock()
-screen = pg.display.set_mode([1350, 700])
+sc_width = 600
+sc_height = 600
+screen = pg.display.set_mode([sc_width, sc_height])
 
 # Title/Icon (Nothing is Decided)
 pg.display.set_caption("NOT DECIDED")
-   #icon later
 
 #Player
 charac_sprite = pg.image.load('assets//Character_sprite_placeholder.png')
+ch_width = charac_sprite.get_width()
+ch_height = charac_sprite.get_height()
 
 #def
 def player():
-    screen.blit(charac_sprite, center_coords((1350, 700), (50, 50)))
+    screen.blit(charac_sprite, center_coords((sc_width, sc_height), (ch_width, ch_height)))
 
 
 #Game loop
