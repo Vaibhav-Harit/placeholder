@@ -28,6 +28,7 @@ while running:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False    
+   
     #Key Presses
     keys = pg.key.get_pressed()
     if keys[pg.K_LEFT]:
