@@ -32,6 +32,18 @@ while running:
         if event.type == pg.QUIT:
             running = False    
 
+#Key Presses
+    keys = pg.key.get_pressed()
+    if keys[pg.K_LEFT]:
+        x -= vel        
+    if keys[pg.K_RIGHT]:
+        x += vel
+    if keys[pg.K_UP]:
+        y -= vel
+    if keys[pg.K_DOWN]:    
+        y += vel
+
+
     screen.fill((0, 0, 0)) #screen color RGB
 
     player()
