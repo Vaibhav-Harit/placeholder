@@ -16,6 +16,8 @@ pg.display.set_caption("NOT DECIDED")
 charac_sprite = pg.image.load('assets//Character_sprite_placeholder.png')
 test_player = Player(charac_sprite, (sc_width, sc_height), 10, 10, 10)
 
+#def vel,x and y
+vel = 5
 
 #Game loop
 running = True
