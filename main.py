@@ -16,10 +16,8 @@ pg.display.set_caption("NOT DECIDED")
 charac_sprite = pg.image.load('assets//Character_sprite_placeholder.png')
 test_player = Player(charac_sprite, (sc_width, sc_height), 10, 10, 10)
 
-#def vel,x and y
+#Movement speed
 vel = 5
-#x = int(test_player.position[0])
-#y = int(test_player.position[1])
 
 #Game loop
 running = True
@@ -32,13 +30,17 @@ while running:
     #Key Presses
     keys = pg.key.get_pressed()
     if keys[pg.K_LEFT]:
-        test_player.update_position(-1 * vel, 0)
+        if test_player.x > 0:
+            test_player.update_position(-1 * vel, 0)
     if keys[pg.K_RIGHT]:
-        test_player.update_position(vel, 0)
+        if test_player.x < (sc_width - test_player.char_width):
+            test_player.update_position(vel, 0)
     if keys[pg.K_UP]:
-        test_player.update_position(0, -1 * vel)
-    if keys[pg.K_DOWN]:    
-        test_player.update_position(0, vel)
+        if test_player.y > 0:
+            test_player.update_position(0, -1 * vel)
+    if keys[pg.K_DOWN]:
+        if test_player.y < (sc_height - test_player.char_height): 
+            test_player.update_position(0, vel)
 
 
     screen.fill((0, 0, 0)) #screen color RGB

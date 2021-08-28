@@ -5,11 +5,17 @@ from functions.Helper_Functions import *
 class Player(object):
     #initialization, will automatically run when you do a new instance
     def __init__(self, sprite : pg.image, screen_wh : tuple, pwr : int, spd : int, defense : int):
+        #basic stats
         self.power = pwr
         self.speed = spd
         self.defense = defense
+        
+        #sprite, height and width
         self.sprite = sprite
+        self.char_width = sprite.get_width()
+        self.char_height = sprite.get_height()
 
+        #position handling
         positon = center_coords(screen_wh, (sprite.get_width(), sprite.get_height()))
         self.x = positon[0]
         self.y = positon[1]
