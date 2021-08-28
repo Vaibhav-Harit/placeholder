@@ -5,7 +5,7 @@ I need each of the tile sprites individually : NOT DONE
 
 
 add character sprite in main.py - DONE
-    > add commands for moving the sprite - NOT DONE (AJ)
+    > add commands for moving the sprite -DONE (AJ/Lillyyyyy)
 
 
 set-up start menu frame - NOT DONE (col)
