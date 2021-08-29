@@ -18,3 +18,15 @@ def y_center(screen_heigth, object_height):
 def center_coords(screen_wh : tuple, player_wh : tuple):
     center = (int(screen_wh[0]/2 - player_wh[0]/2), int(screen_wh[1]/2 - player_wh[1]/2))
     return center
+
+# Divides the map_set from the tmx file into rows and columns
+# ADD LAYERS
+def map_organizer(map_set : list, width : int, height : int):
+    new_set = [[] for i in range(height)]
+    row_count = 0
+    for count, tile in enumerate(map_set):
+        count += 1
+        new_set[row_count].append(tile)
+        if not count % width:
+            row_count += 1
+    return new_set

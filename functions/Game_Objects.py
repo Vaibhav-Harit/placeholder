@@ -6,9 +6,9 @@ class Player(object):
     #initialization, will automatically run when you do a new instance
     def __init__(self, sprite : pg.image, screen_wh : tuple, pwr : int, spd : int, defense : int):
         #basic stats
-        self.power = pwr
-        self.speed = spd
-        self.defense = defense
+        self.Cpower = pwr
+        self.Cspeed = spd
+        self.Cdefense = defense
         
         #sprite, height and width
         self.sprite = sprite
@@ -53,4 +53,8 @@ class Player(object):
         pass
 
 
-    
+    class Weapon(object):
+        def __init__(self, sprite : pg.image, screen_wh : tuple, pwr : int, spd : int,):
+            self.Wpower = pwr
+            self.Wspeed = spd
+            self.Wsprite = sprite
