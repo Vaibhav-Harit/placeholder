@@ -43,6 +43,7 @@ while running:
             test_player.update_position(0, vel)
 
 
+    
     screen.fill((0, 0, 0)) #screen color RGB
 
     test_player.render(screen)
