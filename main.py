@@ -9,10 +9,35 @@ sc_width = 600
 sc_height = 600
 screen = pg.display.set_mode([sc_width, sc_height])
 
+#Define Variables
+main_menu = True
+
+#Menu
+class Button():
+    def __init__(self, x, y, image):
+        self.image = image
+        self.rect = self.image.get_rect()
+        self.rect.x = x
+        self.rect.y = y
+
+    def draw(self):
+
+        screen.blit(self.image, self.rect)
+
+#Buttons-Sprites
+start_img = pg.image.load('assets//other//play_sprite.png')
+option_img = pg.image.load('assets//other//options_sprite.png')
+credits_img = pg.image.load('assets//other//credits_sprite.png')
+
+#Buttons-Screen
+start_button = Button(sc_width // 2 + 50, sc_height // 2 + 50, start_img)
+options_button = Button(sc_width // 2 + 50, sc_height // 2 + 50, start_img)
+credits_button = Button(sc_width // 2 + 50, sc_height // 2 + 50, start_img)
+
 # Title/Icon (Nothing is Decided)
 pg.display.set_caption("NOT DECIDED")
 
-#Player
+#Player Sprites
 char_sprite = pg.image.load('assets//characters//Character_sprite_placeholder.png')
 test_player = Player(char_sprite, (sc_width, sc_height), 10, 10, 10)
 
@@ -23,10 +48,18 @@ vel = 5
 running = True
 while running:
     clock.tick(60) #DO NOT REMOVE
+   
+    #Menu    
+    if main_menu == True:
+        start_button.draw()
+    else:
+        print("LOL")    
+    
+#Event Panel    
     for event in pg.event.get():
         if event.type == pg.QUIT:
-            running = False    
-   
+            running = False   
+
     #Key Presses
     keys = pg.key.get_pressed()
     if keys[pg.K_LEFT]:
@@ -43,7 +76,12 @@ while running:
             test_player.update_position(0, vel)
 
 
-    
+
+
+
+     
+
+
     screen.fill((0, 0, 0)) #screen color RGB
 
     test_player.render(screen)

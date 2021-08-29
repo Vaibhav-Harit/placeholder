@@ -57,4 +57,3 @@ class Player(object):
         def __init__(self, sprite : pg.image, screen_wh : tuple, pwr : int, spd : int,):
             self.Wpower = pwr
             self.Wspeed = spd
-            self.Wsprite = sprite
