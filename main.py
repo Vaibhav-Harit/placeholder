@@ -9,31 +9,6 @@ sc_width = 600
 sc_height = 600
 screen = pg.display.set_mode([sc_width, sc_height])
 
-#Define Variables
-main_menu = True
-
-#Menu
-class Button():
-    def __init__(self, x, y, image):
-        self.image = image
-        self.rect = self.image.get_rect()
-        self.rect.x = x
-        self.rect.y = y
-
-    def draw(self):
-
-        screen.blit(self.image, self.rect)
-
-#Buttons-Sprites
-start_img = pg.image.load('assets//other//play_sprite.png')
-option_img = pg.image.load('assets//other//options_sprite.png')
-credits_img = pg.image.load('assets//other//credits_sprite.png')
-
-#Buttons-Screen
-start_button = Button(sc_width // 2 + 50, sc_height // 2 + 50, start_img)
-options_button = Button(sc_width // 2 + 50, sc_height // 2 + 50, start_img)
-credits_button = Button(sc_width // 2 + 50, sc_height // 2 + 50, start_img)
-
 # Title/Icon (Nothing is Decided)
 pg.display.set_caption("NOT DECIDED")
 
@@ -47,14 +22,7 @@ vel = 5
 #Game loop
 running = True
 while running:
-    clock.tick(60) #DO NOT REMOVE
-   
-    #Menu    
-    if main_menu == True:
-        start_button.draw()
-    else:
-        print("LOL")    
-    
+    clock.tick(60) #DO NOT REMOVE         
 #Event Panel    
     for event in pg.event.get():
         if event.type == pg.QUIT:
