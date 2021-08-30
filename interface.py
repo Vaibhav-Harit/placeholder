@@ -11,7 +11,9 @@ pg.init()
 
 #setting up the pygame window
 clock=pg.time.Clock() 
-screen = pg.display.set_mode([1350, 700]) #screen size 
+sc_width = 1350
+sc_height = 700
+screen = pg.display.set_mode([sc_width, sc_height]) #screen size 
 
 #Menu
 main_menu = True
@@ -33,9 +35,9 @@ options_img = pg.image.load('assets//other//options_sprite.png')
 credits_img = pg.image.load('assets//other//credits_sprite.png')
 
 #Creating/to screen/coords
-start_button = Button(530, 330, start_img)
-options_button = Button(530, 450, options_img)
-credits_button = Button(530, 570, credits_img)
+start_button = Button(x_center(sc_width, start_img.get_width()), 330, start_img)
+options_button = Button(x_center(sc_width, options_img.get_width()), 450, options_img)
+credits_button = Button(x_center(sc_width, credits_img.get_width()), 570, credits_img)
 
 #this is the loop we'll code inside
 running = True
