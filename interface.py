@@ -12,11 +12,12 @@ pg.init()
 #setting up the pygame window
 clock=pg.time.Clock() 
 sc_width = 1350
-sc_height = 700
+sc_height = 690
 screen = pg.display.set_mode([sc_width, sc_height]) #screen size 
 
 #Menu
-main_menu = True
+start_menu = True
+
 
 class Button():
     def __init__(self, x, y, image):
@@ -43,26 +44,23 @@ credits_button = Button(x_center(sc_width, credits_img.get_width()), 570, credit
 running = True
 while running:
     clock.tick(60)#DO NOT REMOVE THIS 
-   
+
+    screen.fill((0, 0, 0))
+
     #Menu    
-    if main_menu == True:
+    if start_menu == True:
         start_button.draw()
         options_button.draw()
         credits_button.draw()
     else:
-        print("xD")
-         
-#EventPanel         
+        pass
+
+    
+#EventPanel
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False #quits the pygame window when we click on X 
 
 
 
-   
-
-    screen.fill((255, 255, 255))
-    start_button.draw()
-    options_button.draw()
-    credits_button.draw()
     pg.display.flip()
