@@ -34,7 +34,7 @@ while running:
     clock.tick(60) # DO NOT REMOVE
     for event in pg.event.get():
         if event.type == pg.QUIT:
-            running = False    
+            running = False
 
     screen.fill((255, 255, 255)) # screen color RGB
     map_machine.render(screen)
