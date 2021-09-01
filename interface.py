@@ -31,9 +31,9 @@ class Button():
         screen.blit(self.image, self.rect)
 
 #Buttons-Sprites
-start_img = pg.image.load('assets//other//play_sprite.png')
-options_img = pg.image.load('assets//other//options_sprite.png')
-credits_img = pg.image.load('assets//other//credits_sprite.png')
+start_img = pg.image.load('assets//others//play.png')
+options_img = pg.image.load('assets//others//options.png')
+credits_img = pg.image.load('assets//others//credits.png')
 
 #Creating/to screen/coords
 start_button = Button(x_center(sc_width, start_img.get_width()), 330, start_img)
@@ -55,12 +55,14 @@ while running:
     else:
         pass
 
-    
+        
 #EventPanel
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False #quits the pygame window when we click on X 
 
+        if event.type == pg.MOUSEBUTTONDOWN:
+            print('code works')
 
 
     pg.display.flip()
