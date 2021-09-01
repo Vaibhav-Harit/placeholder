@@ -64,7 +64,7 @@ while running:
     
     
 
-    screen.fill((0, 0, 0)) #screen color RGB
+    screen.fill((255, 255, 255)) #screen color RGB
     test_player.render(screen)
     test_monster.render(screen)
     pg.display.update()

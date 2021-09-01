@@ -11,8 +11,8 @@ pg.init()
 
 #setting up the pygame window
 clock=pg.time.Clock() 
-sc_width = 1350
-sc_height = 690
+sc_width = 900
+sc_height = 700
 screen = pg.display.set_mode([sc_width, sc_height]) #screen size 
 
 #Menu
@@ -45,7 +45,7 @@ running = True
 while running:
     clock.tick(60)#DO NOT REMOVE THIS 
 
-    screen.fill((0, 0, 0))
+    screen.fill((255, 255, 255))
 
     #Menu    
     if start_menu == True:
