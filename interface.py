@@ -31,9 +31,9 @@ class Button():
         screen.blit(self.image, self.rect)
 
 #Buttons-Sprites
-start_img = pg.image.load('assets//others//play.png')
-options_img = pg.image.load('assets//others//options.png')
-credits_img = pg.image.load('assets//others//credits.png')
+start_img = pg.image.load('assets//interface//play.png')
+options_img = pg.image.load('assets//interface//options.png')
+credits_img = pg.image.load('assets//interface//credits.png')
 
 #Creating/to screen/coords
 start_button = Button(x_center(sc_width, start_img.get_width()), 330, start_img)
