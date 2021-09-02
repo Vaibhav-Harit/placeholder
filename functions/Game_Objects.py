@@ -53,7 +53,8 @@ class Player(object):
         pass
 
 
-    class Weapon(object):
-        def __init__(self, sprite : pg.image, screen_wh : tuple, pwr : int, spd : int,):
-            self.Wpower = pwr
-            self.Wspeed = spd
+class Weapon(object):
+    def __init__(self, sprite : pg.image, screen_wh : tuple, pwr : int, spd : int,):
+        self.power = pwr
+        self.speed = spd
+        self.sprite = sprite
