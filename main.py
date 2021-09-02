@@ -5,7 +5,7 @@ pg.init()
 
 #setting up the basics cuz these nubs no read tutorial
 clock = pg.time.Clock()
-sc_width = 600
+sc_width = 800
 sc_height = 600
 screen = pg.display.set_mode([sc_width, sc_height])
 
@@ -14,7 +14,8 @@ pg.display.set_caption("NOT DECIDED")
 
 #Player Sprites
 char_sprite = pg.image.load('assets//characters//Character_sprite_placeholder.png')
-test_player = Player(char_sprite, (sc_width, sc_height), 10, 10, 10)
+char_sprite = pg.transform.scale(char_sprite, (32, 64))
+test_player = Player(char_sprite, (sc_width, sc_height), 1000, 1000, 10 ,10, 10)
 
 #Movement speed
 vel = 5
