@@ -15,9 +15,9 @@ sc_width = 1350
 sc_height = 690
 screen = pg.display.set_mode([sc_width, sc_height]) #screen size 
 
-#Menu
-start_menu = True
 
+start_menu = True
+game_interface = False
 
 class Button():
     def __init__(self, x, y, image):
@@ -60,6 +60,15 @@ while running:
     for event in pg.event.get():
         if event.type == pg.QUIT:
             running = False #quits the pygame window when we click on X 
+
+        #detects click on sprite 
+        if pg.mouse.get_pressed()[0] and start_button.rect.collidepoint(pg.mouse.get_pos()) and not handled: 
+            game_interface = True
+        handled = pg.mouse.get_pressed()[0]
+
+        if game_interface == True:
+            start_menu = False
+            screen.fill((0, 0, 0))
 
         if event.type == pg.MOUSEBUTTONDOWN:
             print('code works')
