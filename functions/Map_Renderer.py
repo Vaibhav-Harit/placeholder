@@ -18,7 +18,7 @@ class map_renderer():
             for file in files:
                 key =  int(file[:-4]) # gets key from file name
                 tile_sprite =  pg.image.load(os.path.join(root,file)) # converts to pygame surface
-                # tile_sprite = pg.transform.scale(tile_sprite, (tile_length, tile_length))
+                tile_sprite = pg.transform.scale(tile_sprite, (tile_length, tile_length))
                 tile_keys[key] = tile_sprite # adds to dictionary
         return tile_keys
 
