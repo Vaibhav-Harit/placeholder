@@ -1,4 +1,4 @@
-
+import math
 
 # Finding the coordinates to center an object in the x-axis
 def x_center(screen_width, object_width):
@@ -30,3 +30,6 @@ def map_organizer(map_set : list, width : int, height : int):
         if not count % width:
             row_count += 1
     return new_set
+
+def distance(object1: tuple, object2: tuple):
+    return math.sqrt(((object2[0]-object1[0])**2) + ((object2[1]-object1[1])**2))
