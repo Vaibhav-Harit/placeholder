@@ -1,5 +1,5 @@
 import pygame as pg
-from functions import *
+from functions import * 
 
 pg.init()
 

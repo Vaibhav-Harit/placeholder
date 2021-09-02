@@ -9,9 +9,8 @@ class Player(object):
         self.power = pwr
         self.speed = spd
         self.defense = defense
-
         # setting up health bar
-        health_assets = [pg.image.load('assets//player_ui//Staminabar.png'), pg.image.load('assets//player_ui//Healthbar.png'), pg.image.load('assets//player_ui//Healthbar_overlay.png')]
+        health_assets = [pg.image.load('assets//player_ui//Healthbar_overlay.png'), pg.image.load('assets//player_ui//Healthbar.png'), pg.image.load('assets//player_ui//Staminabar.png')]
         self.health_bar = Health_Bar(health_assets, health, luck, .2) 
         
         #sprite, height and width
@@ -83,7 +82,7 @@ class Health_Bar():
         if self.hp > self.maxHP:
             self.hp = self.maxHp
 
-        self.display_hp += (self.hp - self.display_hp)/10 # change '10' to larger value to make the effect smoother or the opposite for more isntant
+        self.display_hp += (self.hp - self.display_hp)/10 #c hange '10' to larger value to make the effect smoother or the opposite for more isntant
         self.display_luck += (self.luck - self.display_luck)/10
 
         screen.blit(self.health_bar, (((1 - self.display_hp/self.maxHP)* - (self.h_width), 0)))
