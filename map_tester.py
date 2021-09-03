@@ -14,12 +14,12 @@ pg.display.set_caption("NOT DECIDED")
 
 # Player
 char_sprite = pg.image.load('assets//characters//Character_sprite_placeholder.png')
-char_sprite = pg.transform.scale(char_sprite, (32, 64))
+char_sprite = pg.transform.scale(char_sprite, (32, 64)) # setting character dimensions
 test_player = Player(char_sprite, (sc_width, sc_height), 1000, 1000, 10 ,10, 10)
 vel = .5
 
 # Map
-map_machine = map_renderer('assets//maps//test1.tmx', 'assets//tiles', (0, 0), 64)
+map_machine = map_renderer('assets//maps//test0.tmx', 'assets//tiles', (0, 0), 64)
 
 # Game loop
 running = True
