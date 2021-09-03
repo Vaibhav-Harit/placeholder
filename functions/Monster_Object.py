@@ -26,26 +26,27 @@ class Monster(object):
         if distance(self.initial_position, current_position) >= range - 10:
             set_destination = self.initial_position
         else:
-            random_x = random.randint(-1 * range, range)
-            random_y = random.randint(-1 * range, range)
-            set_destination = (random_x, random_y)
+            random_x = random.randint(-1 * (range), range)
+            random_y = random.randint(-1 * (range), range)
+            set_destination = ((self.x + random_x), (self.y + random_y))
         
         return set_destination
 
     #movement when player in not nearby
-    def wander(self, velocity, target):
+    def wander(self, velocity, target: tuple):
         target_coords_x = target[0]
         target_coords_y = target[1]
 
-        if self.x < target_coords_x: #moving right
-            self.x += velocity
-        elif self.x > target_coords_x: #moving left
-            self.x -= velocity
-
-        if self.y < target_coords_y: #moving down
-            self.y += velocity
-        elif self.y > target_coords_y: #moving up
-            self.y -= velocity
+        if abs(target_coords_x - self.x) > velocity:
+            if self.x < target_coords_x: #moving right
+                self.x += velocity
+            elif self.x > target_coords_x: #moving left
+                self.x -= velocity
+        if abs(target_coords_y - self.y) > velocity:
+            if self.y < target_coords_y: #moving down
+                self.y += velocity
+            elif self.y > target_coords_y: #moving up
+                self.y -= velocity
 
 
     #movement to chase the player if it is within range

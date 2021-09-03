@@ -23,12 +23,14 @@ test_monster = Monster("testmonstah", char_sprite, (100, 100), 10, 10, 10, 10)
 enemy_move = pg.USEREVENT + 1
 
 #setting the timer for mob movement
-pg.time.set_timer(enemy_move, 300)
+pg.time.set_timer(enemy_move, 2000)
 
 #Movement speed
 vel = 5
-enemy_steps = 5
-enemy_range = 50
+enemy_vel = 3
+enemy_range = 200 #player sensing range//will chase the player once they enter this range
+enemy_movement_limit = 100  #limits range of movement of the monster
+target = (100, 100)
 
 #Game loop
 running = True
@@ -40,7 +42,7 @@ while running:
             running = False
         #delays enemy movement
         if event.type == enemy_move:
-            target = test_monster.destination(100)
+            target = test_monster.destination(enemy_movement_limit)
             
 
     #Key Presses
@@ -60,9 +62,9 @@ while running:
 
     #checks player distance to monster
     if distance((test_player.x, test_player.y), (test_monster.x, test_monster.y)) > enemy_range:
-        test_monster.wander(vel, target)
+        test_monster.wander(enemy_vel, target)
     else:
-        test_monster.chase(vel, (test_player.x, test_player.y))
+        test_monster.chase(enemy_vel, (test_player.x, test_player.y))
 
     
 
