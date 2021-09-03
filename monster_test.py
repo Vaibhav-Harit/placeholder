@@ -22,13 +22,13 @@ test_monster = Monster("testmonstah", char_sprite, (100, 100), 10, 10, 10, 10)
 #making an event for enemies
 enemy_move = pg.USEREVENT + 1
 
-#setting the timer
-pg.time.set_timer(enemy_move, 100)
+#setting the timer for mob movement
+pg.time.set_timer(enemy_move, 300)
 
 #Movement speed
 vel = 5
 enemy_steps = 5
-enemy_range = 200
+enemy_range = 50
 
 #Game loop
 running = True
@@ -40,10 +40,7 @@ while running:
             running = False
         #delays enemy movement
         if event.type == enemy_move:
-            if abs(test_player.x - test_monster.x) <= enemy_range and abs(test_player.y - test_monster.y) <= enemy_range:
-                test_monster.move(vel, True, (test_player.x, test_player.y))
-            else:
-                test_monster.move(vel, False, None)
+            target = test_monster.destination(100)
             
 
     #Key Presses
@@ -62,7 +59,11 @@ while running:
             test_player.update_position(0, vel)
 
     #checks player distance to monster
-    
+    if distance((test_player.x, test_player.y), (test_monster.x, test_monster.y)) > enemy_range:
+        test_monster.wander(vel, target)
+    else:
+        test_monster.chase(vel, (test_player.x, test_player.y))
+
     
 
     screen.fill((255, 255, 255)) #screen color RGB
