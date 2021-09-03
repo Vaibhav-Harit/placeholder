@@ -46,7 +46,6 @@ class Monster(object):
             elif player_y < self.y:
                 self.y -= velocity
             
-
     def combat(self):
         pass
 
