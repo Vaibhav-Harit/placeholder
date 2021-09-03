@@ -54,15 +54,17 @@ class Monster(object):
         player_x = player_position[0]
         player_y = player_position[1]
 
-        if player_x > self.x:
-            self.x += velocity
-        elif player_x < self.x:
-            self.x -= velocity
-            
-        if player_y > self.y:
-            self.y += velocity
-        elif player_y < self.y:
-            self.y -= velocity
+        if abs(player_x - self.x) > velocity:
+            if player_x > self.x:
+                self.x += velocity
+            elif player_x < self.x:
+                self.x -= velocity
+
+        if abs(player_y - self.y) > velocity:    
+            if player_y > self.y:
+                self.y += velocity
+            elif player_y < self.y:
+                self.y -= velocity
 
 
     def combat(self):
