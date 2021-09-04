@@ -18,10 +18,36 @@ class Inventory():
         if item_ID in self.items:
             self.items[item_ID] -= amount
             if self.items[item_ID] == 0:
-                self.items.pop(item_ID) #removes the key from the inventory if the item does not exist
+                self.items.pop(item_ID) #removes the itemID from inventory if the amount is zero
         #-----You can add an else statement if you have anything you want it to do if the item is not present-----#
 
+    #sorts the inventory by item type // first item ID digit
+    def inv_type_sort(self):
+        sorted_inventory = sorted(self.items.items(), key = lambda x: int(str(x[0])[0:]))
+        self.items = {}
+        for item in sorted_inventory:
+            itemID = item[0]
+            item_amount = item[1]
+            self.items[itemID] = item_amount
+
+    #sorts the inventory by item rarity // second item ID digit
+    def inv_rarity_sort(self):
+        sorted_inventory = sorted(self.items.items(), key = lambda x: int(str(x[0])[1]))
+        self.items = {}
+        for item in sorted_inventory:
+            itemID = item[0]
+            item_amount = item[1]
+            self.items[itemID] = item_amount
+
+    #sorts the inventory by class type of the item (exclusive for weapons) // third item ID digit
+    def inv_class_sort(self):
+        sorted_inventory = sorted(self.items.items(), key = lambda x: int(str(x[0])[2]), reverse = True)
+        self.items = {}
+        for item in sorted_inventory:
+            itemID = item[0]
+            item_amount = item[1]
+            self.items[itemID] = item_amount
+    
+    #how to display greedo help xD
     def display_inventory(self):
         pass
-
-
