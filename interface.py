@@ -55,10 +55,6 @@ running = True
 while running:
     clock.tick(60)#DO NOT REMOVE THIS 
 
-    if remove_all == True:
-        screen.fill((0, 0, 0))
-        
-    remove_all = False
     #Menu
 
         
@@ -70,7 +66,7 @@ while running:
         handled = pg.mouse.get_pressed()[0]
 
         if start_menu == True:
-            remove_all = True
+            screen.fill((0, 0, 0))
             start_button.draw()
             options_button.draw()
             credits_button.draw()
