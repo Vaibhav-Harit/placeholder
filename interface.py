@@ -22,7 +22,6 @@ options_menu = False
 
 class Button:
     def __init__(self, x, y, image):
-        self.name = name
         self.image = image
         self.rect = self.image.get_rect()
         self.rect.x = x
@@ -32,7 +31,7 @@ class Button:
         screen.blit(self.image, self.rect)
 
     def clicked(self):
-        pg.mouse.get_pressed()[0] and self.rect.collidepoint(pg.mouse.get_pos()) and not pg.mouse.get_pressed()[0]
+        pg.mouse.get_pressed()[0] and self.rect.collidepoint(pg.mouse.get_pos())
 
             
 #Button Sprites
@@ -48,10 +47,10 @@ musicoff_img = imgload('assets//interface//music off.png')
 
 
 #Creating/to screen/coords
-start_button = Button('start', x_center(sc_width, start_img.get_width()), 330, start_img)
-options_button = Button('options', x_center(sc_width, options_img.get_width()), 450, options_img)
-credits_button = Button('credits', x_center(sc_width, credits_img.get_width()), 570, credits_img)
-attack_button = Button('attack', 350, 350, attack_img)
+start_button = Button(x_center(sc_width, start_img.get_width()), 330, start_img)
+options_button = Button(x_center(sc_width, options_img.get_width()), 450, options_img)
+credits_button = Button(x_center(sc_width, credits_img.get_width()), 570, credits_img)
+attack_button = Button(350, 350, attack_img)
 
 
 #MAIN LOOP
@@ -81,7 +80,7 @@ while running:
             start_menu = False
             print('mmmmmmmm')
         
-        if pg.mouse.get_pressed()[0] and options_button.rect.collidepoint(pg.mouse.get_pos()) and not handled:
+        if options_button.clicked():
             start_menu = False
             options_menu = True
 
