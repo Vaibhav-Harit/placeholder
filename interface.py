@@ -21,7 +21,7 @@ game_interface = False
 options_menu = False
 
 class Button:
-    def __init__(self, name, x = int, y = int, image = pg.image.load):
+    def __init__(self, x, y, image):
         self.name = name
         self.image = image
         self.rect = self.image.get_rect()
@@ -32,10 +32,7 @@ class Button:
         screen.blit(self.image, self.rect)
 
     def clicked(self):
-        if pg.mouse.get_pressed()[0] and self.name.rect.collidepoint(pg.mouse.get_pos()) and not pg.mouse.get_pressed()[0]:
-            return True
-        else:
-            return False
+        pg.mouse.get_pressed()[0] and self.rect.collidepoint(pg.mouse.get_pos()) and not pg.mouse.get_pressed()[0]
 
             
 #Button Sprites
@@ -47,6 +44,8 @@ credits_img = imgload('assets//interface//credits.png')
 attack_img = imgload('assets//interface//attack.png')
 musicon_img = imgload('assets//interface//music on.png')
 musicoff_img = imgload('assets//interface//music off.png')
+
+
 
 #Creating/to screen/coords
 start_button = Button('start', x_center(sc_width, start_img.get_width()), 330, start_img)
@@ -74,8 +73,7 @@ while running:
             options_button.draw()
             credits_button.draw()
 
-    #ALL CLICK DETECTIONS HERE
-        handled = pg.mouse.get_pressed()[0]    
+    #ALL CLICK DETECTIONS HERE    
         #start button
         if start_button.clicked(): 
             screen.fill(0, 0, 0)
