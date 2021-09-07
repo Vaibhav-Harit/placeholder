@@ -1,3 +1,14 @@
+class Item(object):
+    def __init__(self, name, type, rarity, ID, sprite, item_class = None, power = None, speed = None):
+        self.name = name
+        self.type = type
+        self.rarity = rarity
+        self.ID = ID
+        self.sprite = sprite
+        self.item_class = item_class
+        self.power = power
+        self.speed = speed
+
 class Inventory():
     #a dictionary with all the items in the game {item_ID: item_name}
     item_list = {}
@@ -51,3 +62,4 @@ class Inventory():
     #how to display greedo help xD
     def display_inventory(self):
         pass
+
