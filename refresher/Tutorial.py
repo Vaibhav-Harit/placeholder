@@ -8,10 +8,7 @@
 #CODE
 
 
-
-from Functions.Helper_Functions import center_coords
 import pygame as pg
-import random
 
 # im not gonna explain this
 def multlines(text, configs, fontsize):

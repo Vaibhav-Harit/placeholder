@@ -2,13 +2,19 @@ import pygame as pg
 import os 
 
 class map_renderer():
-    def __init__(self, map_dir : list, tile_dir : str, render_position : tuple, tile_length : int, map_user = None):
+    def __init__(self, map_dir : list, tile_dir : str, render_position : tuple, tile_length : int, screen_wh : tuple,  map_user = None):
         self.user = map_user
         self.map_set = map_renderer.map_loader(map_dir)
+        self.layer_num = len(self.map_set)
+        self.cur_map = []
         self.tile_set = map_renderer.tile_loader(tile_dir, tile_length)
         self.t_width = tile_length
         self.x = render_position[0]
         self.y = render_position[1]
+        self.tiles_x = (screen_wh[0] + tile_length)//tile_length
+        self.tiles_y = (screen_wh[1] + tile_length)//tile_length
+        # print(self.tiles_x, self.tiles_y)
+        # self.optimize()
 
     @staticmethod
     def map_loader(map_dir : str):
@@ -26,7 +32,6 @@ class map_renderer():
                     height = int(line[-2])
                     f.readline()
                     line = f.readline()
-                    print(line)
                     layer_count += 1
                 line_num += 1
                 
@@ -50,11 +55,7 @@ class map_renderer():
                 layer = [int(tile) for tile in layer]
                 layer = map_renderer.map_organizer(layer, width, height)
                 map_sets[count] = layer
-            print(len(map_sets), len(map_sets[0]), len(map_sets[1]))
             return map_sets
-
-
-
     @staticmethod
     def map_organizer(map_set : list, width : int, height : int):
         new_set = [[] for i in range(height)]
@@ -65,7 +66,6 @@ class map_renderer():
             if not count % width:
                 row_count += 1
         return new_set
-
     @staticmethod
     def tile_loader(tile_dir : str, tile_length):
         path = tile_dir
@@ -78,8 +78,36 @@ class map_renderer():
                 tile_keys[key] = tile_sprite # adds to dictionary
         return tile_keys
 
+    def optimize(self):
+        seed_x = self.x//self.t_width
+        seed_y = self.y//self.t_width
+        seed_postion = (seed_x, seed_y)
+        seed_end = seed_x + self.tiles_x
+        if __name__ == '__main__':
+                print(f'''
+Seed :  {seed_postion} 
+Seed End :  {seed_end}''')
+        map_getter = []
+        for layer in range(self.layer_num):
+            map_getter.append([])
+            for row in range(self.tiles_y):
+                try:
+                    tile_row = self.map_set[layer][seed_y + row][seed_x : seed_end]
+                    if __name__ == '__main__':
+                        print(tile_row)
+                    map_getter[layer].append(tile_row)
+                except:
+                    break
+        self.cur_map = map_getter
+
     def render(self, screen : pg.display):
-        for layer in self.map_set:
+        # if self.x % self.t_width or self.y % self.t_width:
+        self.optimize()
+        # print(self.cur_map)
+        # print(self.cur_map, len(self.cur_map[0]), len(self.cur_map[0][0]))
+        # print(self.x, self.y)
+        # exit()
+        for layer in self.cur_map:
             y = self.y
             for tiles in layer:
                 x = self.x
@@ -95,4 +123,54 @@ class map_renderer():
         self.x += x_diff
         self.y += y_diff
 
-map_machine = map_renderer('assets//maps//test0.tmx', 'assets//tiles', (0, 0), 32)
+
+sc_width =500
+sc_height = 500
+
+
+map_machine = map_renderer('assets//maps//test1.tmx', 'assets//tiles', (0, 0), 64, (sc_width, sc_height))
+map_machine.x += 5.1
+
+map_machine.y += 0
+
+map_machine.optimize()
+
+
+
+
+
+
+
+
+
+
+
+# '''
+
+# MAP = map_set
+# SW, WH = screen width, screen height
+# TW = tile width
+
+
+# screen_area = (SW + TW) * (SH + TW)
+# tile_area = TW*TW
+# total_tiles = screen_area / tile_area
+# tiles_x = (SW + TW)/TW
+# tiles_y = (SH + TW)/TW
+
+# tile_position_getter(cur_point : tuple):
+#     seed_x = cur_point//TW
+#     seed_y = cur_point//tw
+#     seed_postion = (seed_x, seed_y)
+#     seed_end = seed_x + tiles_x
+
+#     map_getter = []
+#     for row in range(tiles_y)
+#         try:
+#             tile_rows = MAP[seed_y + row][seed_x : seed_end]
+#             tile_rows.append(map_getter())
+#         except:
+#             break
+        
+
+# tille drawer

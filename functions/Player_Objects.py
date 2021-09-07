@@ -10,7 +10,7 @@ class Player(object):
         self.speed = spd
         self.defense = defense
         # setting up health bar
-        health_assets = [pg.image.load('assets//player_ui//Healthbar_overlay.png'), pg.image.load('assets//player_ui//Healthbar.png'), pg.image.load('assets//player_ui//Staminabar.png')]
+        health_assets = [pg.image.load('assets//interface//player_ui//Healthbar_overlay.png'), pg.image.load('assets//interface//player_ui//Healthbar.png'), pg.image.load('assets//interface//player_ui//Staminabar.png')]
         self.health_bar = Health_Bar(health_assets, health, luck, .2) 
         
         #sprite, height and width

@@ -7,7 +7,16 @@ pg.init()
 clock = pg.time.Clock()
 sc_width = 800
 sc_height = 600
-screen = pg.display.set_mode([sc_width, sc_height])
+screen = pg.display.set_mode([sc_width, sc_height], pg.RESIZABLE)
+
+def multlines(text, configs, fontsize):
+    text = text.splitlines()
+    for i, j in enumerate(text):
+        screen.blit(configs.render(j, True, (255, 0, 0)), (0, fontsize*i))
+
+
+
+
 
 # Title/Icon (Nothing is Decided)
 pg.display.set_caption("NOT DECIDED")
@@ -16,10 +25,10 @@ pg.display.set_caption("NOT DECIDED")
 char_sprite = pg.image.load('assets//characters//Character_sprite_placeholder.png')
 char_sprite = pg.transform.scale(char_sprite, (32, 64)) # setting character dimensions
 test_player = Player(char_sprite, (sc_width, sc_height), 1000, 1000, 10 ,10, 10)
-vel = .5
+vel = 1
 
 # Map
-map_machine = map_renderer('assets//maps//test0.tmx', 'assets//tiles', (0, 0), 64)
+map_machine = map_renderer('assets//maps//test1.tmx', 'assets//tiles', (0, 0), 32, (sc_width, sc_height))
 
 # Game loop
 running = True
@@ -51,4 +60,5 @@ while running:
     screen.fill((255, 255, 255)) # screen color RGB
     map_machine.render(screen)
     test_player.render(screen)
+    multlines(f'X :   {map_machine.x}\nY :  {map_machine.y}\n', pg.font.Font('freesansbold.ttf',25), 25) # add this before display.update if u wanna see the x, y pos of the square
     pg.display.update()
