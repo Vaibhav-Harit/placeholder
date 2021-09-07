@@ -1,5 +1,8 @@
-class Item(object):
-    def __init__(self, name, type, rarity, ID, sprite, item_class = None, power = None, speed = None):
+import pandas
+
+#----------ITEMS CLASS----------#
+class Item:
+    def __init__(self, name, type, rarity, ID, sprite = None, item_class = None, power = None, speed = None):
         self.name = name
         self.type = type
         self.rarity = rarity
@@ -9,7 +12,19 @@ class Item(object):
         self.power = power
         self.speed = speed
 
-class Inventory():
+def initialize_items(items_dict):   #a function to initialize all items in a processed dictionary
+    item_list = {}
+    for item in items_dict:
+        item_list[item['Item ID']] = Item(item['Item Name'], item['Item Type'], item['Item Rarity'], item['Item ID'], item['Sprite'], item['Class Type'], item['Power'], item['Speed'])
+    return item_list
+
+#initializing items through functions
+items_df = pandas.read_excel('assets\item_list.xlsx', sheet_name = 'ItemList')
+item_dictionary = items_df.to_dict('records')
+item_list = initialize_items(item_dictionary)
+
+#----------INVENTORY SYSTEM----------#
+class Inventory:
     #a dictionary with all the items in the game {item_ID: item_name}
     item_list = {}
 
