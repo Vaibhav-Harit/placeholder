@@ -31,7 +31,10 @@ class Button:
         screen.blit(self.image, self.rect)
 
     def clicked(self):
-        pg.mouse.get_pressed()[0] and self.rect.collidepoint(pg.mouse.get_pos())
+        if pg.mouse.get_pressed()[0] and self.rect.collidepoint(pg.mouse.get_pos()):
+            return True
+        else:
+            return False
 
             
 #Button Sprites
@@ -75,7 +78,6 @@ while running:
     #ALL CLICK DETECTIONS HERE    
         #start button
         if start_button.clicked(): 
-            screen.fill(0, 0, 0)
             game_interface = True
             start_menu = False
             print('mmmmmmmm')
