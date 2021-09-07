@@ -22,7 +22,6 @@ def initialize_items(items_dict):   #a function to initialize all items in a pro
 items_df = pandas.read_excel('assets\item_list.xlsx', sheet_name = 'ItemList')
 item_dictionary = items_df.to_dict('records')
 item_list = initialize_items(item_dictionary)
-print(item_list)
 
 #----------INVENTORY SYSTEM----------#
 class Inventory:
