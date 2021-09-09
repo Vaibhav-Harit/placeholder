@@ -1,5 +1,5 @@
 import pygame as pg
-from Helper_Functions import *
+from functions.Helper_Functions import *
 import random
 
 class Monster(object):
