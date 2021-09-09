@@ -2,20 +2,21 @@ import pandas
 
 #----------ITEMS CLASS----------#
 class Item:
-    def __init__(self, name, type, rarity, ID, sprite = None, item_class = None, power = None, speed = None):
+    def __init__(self, name, type, rarity, ID, sprite = None, item_class1 = None, item_class2 = None, power = None, speed = None):
         self.name = name
         self.type = type
         self.rarity = rarity
         self.ID = ID
         self.sprite = sprite
-        self.item_class = item_class
+        self.first_class = item_class1
+        self.second_class = item_class2
         self.power = power
         self.speed = speed
 
 def initialize_items(items_dict):   #a function to initialize all items in a processed dictionary
     item_list = {}
     for item in items_dict:
-        item_list[item['Item ID']] = Item(item['Item Name'], item['Item Type'], item['Item Rarity'], item['Item ID'], item['Sprite'], item['Class Type'], item['Power'], item['Speed'])
+        item_list[item['Item ID']] = Item(item['Item Name'], item['Item Type'], item['Item Class Set'], item['Item ID'], item['Sprite'], item['Class Type 1'], item['Class Type 2'], item['Power'], item['Speed'])
     return item_list
 
 #initializing items through functions
