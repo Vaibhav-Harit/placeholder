@@ -51,6 +51,8 @@ musicoff_img = rescale(imgload('assets//interface//music off.png'), (100, 100))
 credits_img = rescale(imgload('assets//interface//credits.png'), (200, 60))
 
 
+test_sword_img = rescale(imgload('assets//test_weapon.png'), (96,96))
+
 
 
 #Button Instances
@@ -67,6 +69,8 @@ musicoff_button = Button(x_center(sc_width, musicon_img.get_width()), 200, music
 
 credits_button = Button(x_center(sc_width, credits_img.get_width()), 540, credits_img)
 
+
+test_sword = Button(300, 300, test_sword_img)
 
 
 
@@ -131,7 +135,8 @@ while running:
             start_button.draw()
             options_button.draw()
             credits_button.draw()
-            
+            test_sword.draw()
+
             start_menu = False
         
         
@@ -154,7 +159,8 @@ while running:
 
             options_menu = False
 
-
+        if inventory_menu == True:
+            pass
 
 
 
