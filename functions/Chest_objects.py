@@ -18,9 +18,7 @@ class chest:
     def spawn(self, screen: pg.display):
         screen.blit(self.img, (self.x, self.y))
 
-
-        
-
+# we're testing the chest here as of now, will remove later
 random_x = random.randint(100,1000)
 random_y = random.randint(100,1000)
 cords = ((random_x), (random_y))
