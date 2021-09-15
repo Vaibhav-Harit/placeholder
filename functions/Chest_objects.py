@@ -1,12 +1,13 @@
 import pygame as pg
-import math
+import pandas
 import random
-from Helper_Functions import *
 
-clock=pg.time.Clock()
-sc_width = 1300
-sc_height = 700
-screen = pg.display.set_mode([sc_width, sc_height])
+#chest_item class
+class Chest_Item:
+    def __init__(self, name, drop_rate, ID):
+        self.name = name
+        self.drop_rate = drop_rate
+        self.ID = ID
 
 class chest:
     def __init__(self, pos, sprite):
@@ -17,22 +18,24 @@ class chest:
 
     def spawn(self, screen: pg.display):
         screen.blit(self.img, (self.x, self.y))
+    
+    #def loot(self):
 
-# we're testing the chest here as of now, will remove later
-random_x = random.randint(100,1000)
-random_y = random.randint(100,1000)
-cords = ((random_x), (random_y))
-        
-chest1 = chest((cords), pg.image.load('assets//interface//play.png'))
+    
+#creating a dictionary for chest_item objects
+def chest_items_init(chest_items_dict):
+    chest_item_list = {}
+    for chest_item in chest_items_dict:
+        chest_item_list[chest_item['ID']] = Chest_Item(chest_item['Name'], chest_item['Drop Rate'], chest_item['ID'])
+    return chest_item_list
 
-running = True
-while running:
-    clock.tick(60)
+#initializing chest_item_list
+chest_items_df = pandas.read_excel('assets\lists\item_list.xlsx', sheet_name = 'ChestDrops')
+chest_items_dict = chest_items_df.to_dict('records')
+chest_list = chest_items_init(chest_items_dict)
 
-    for event in pg.event.get():
-        if event.type == pg.QUIT:
-            running = False
+#making the values for randomizing
 
-    chest1.spawn(screen)
 
-    pg.display.flip()
+
+
