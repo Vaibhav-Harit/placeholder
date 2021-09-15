@@ -1,6 +1,7 @@
 import pygame as pg
 import math
 import random
+from Helper_Functions import *
 
 clock=pg.time.Clock()
 sc_width = 1300
@@ -17,15 +18,14 @@ class chest:
     def spawn(self, screen: pg.display):
         screen.blit(self.img, (self.x, self.y))
 
-    def decide_pos(self):
-        pass
-        #decided_pos = []
 
-        #random_x = random.randint(100,500)
-        #random_y = random.randint(100,500)
-        #set_destination = ((self.x + random_x), (self.y + random_y))
         
-chest1 = chest((100,500), pg.image.load('assets//interface//play.png'))
+
+random_x = random.randint(100,1000)
+random_y = random.randint(100,1000)
+cords = ((random_x), (random_y))
+        
+chest1 = chest((cords), pg.image.load('assets//interface//play.png'))
 
 running = True
 while running:
@@ -37,4 +37,4 @@ while running:
 
     chest1.spawn(screen)
 
-pg.display.flip()
+    pg.display.flip()
