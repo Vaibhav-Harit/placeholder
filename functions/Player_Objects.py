@@ -23,23 +23,16 @@ class Player(object):
         self.x = positon[0]
         self.y = positon[1]
 
-    def render(self, screen : pg.display):
-        screen.blit(self.sprite, (self.x, self.y))
+    def render(self, screen : pg.display, scroll_x, scroll_y):
+        screen.blit(self.sprite, (self.x - scroll_x, self.y - scroll_y ))
         self.health_bar.render_bars(screen)
 
     def attack(self, ):
         pass
 
     def update_position(self, x_diff, y_diff):
-        if x_diff >= 0:
-            self.x += x_diff
-        elif x_diff < 0:
-            self.x -= abs(x_diff)
-
-        if y_diff >= 0:
-            self.y += y_diff
-        elif y_diff < 0:
-            self.y -= abs(y_diff)
+        self.x += x_diff
+        self.y += y_diff
 
     def sprint(self, ):
         pass
