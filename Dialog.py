@@ -8,8 +8,7 @@ sc_height = 600
 screen = pg.display.set_mode([sc_width, sc_height])
 
 def dialog(message):
-    global letters_shown
-    global time_passed
+    # global letters_shown
     letter_x = 50
     letter_num = 0
     letter_y = 50
@@ -89,6 +88,7 @@ def dialog(message):
         
     return;
 
+letters_shown = 10
 running = True
 start_time = time.time()
 while running:
@@ -100,6 +100,9 @@ while running:
 
     screen.fill((0, 0, 0)) #screen color RGB
     dialog('A wizard beckons, "come forth young one", you hesitate, not knowing what will happen if you decline his malicious offer...')
-
+    time_passed = (time.time() - start_time)
+    if time_passed >=  1:
+        time_passed = 0
+        letters_shown += 1
 
     pg.display.update()

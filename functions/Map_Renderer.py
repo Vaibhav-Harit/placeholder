@@ -9,14 +9,16 @@ class map_renderer():
         self.cur_map = []
         self.tile_set = map_renderer.tile_loader(tile_dir, tile_length)
         self.t_width = tile_length
-        self.x = render_position[0]
-        self.y = render_position[1]
-        self.temp_x = 0
-        self.temp_y = 0
         self.tiles_x = (screen_wh[0] + tile_length)//tile_length
         self.tiles_y = (screen_wh[1] + tile_length)//tile_length
-        self.optimize(0, 0)
+        self.seed = [1, 1]
         self.true_scroll = [0, 0]
+        self.scroll_x = 0
+        self.scroll_y = 0
+        self.optimize()
+        self.user = map_user
+        self.center_x = map_user.x
+        self.center_y = map_user.y
 
     @staticmethod
     def map_loader(map_dir : str):
@@ -79,15 +81,23 @@ class map_renderer():
                 tile_sprite = pg.transform.scale(tile_sprite, (tile_length, tile_length))
                 tile_keys[key] = tile_sprite # adds to dictionary
         return tile_keys
-    def optimize(self, scroll_x : int, scroll_y : int):
-        seed_x = scroll_x//self.t_width
-        seed_y = scroll_y//self.t_width
-        seed_postion = (seed_x, seed_y)
+    def optimize(self):
+        seed_x = self.scroll_x//self.t_width
+        seed_y = self.scroll_y//self.t_width
+        if seed_x < 0:
+            seed_x = 0
+        if seed_y < 0:
+            seed_y = 0
+        seed_position = [seed_x, seed_y]
+
+        if self.seed == seed_position:
+            return
+        else:
+            self.seed = seed_position
+            print(seed_position)
+            # print(self.seed, self.true_scroll)
+
         seed_end = seed_x + self.tiles_x
-        if __name__ == '__main__':
-                print(f'''
-            Seed :  {seed_postion} 
-            Seed End :  {seed_end}''')
         map_getter = []
         for layer in range(self.layer_num):
             map_getter.append([])
@@ -98,13 +108,13 @@ class map_renderer():
                 except:
                     break
         self.cur_map = map_getter
-        if __name__ == '__main__':
-            print(self.cur_map)
-            pass
-    def render(self, screen : pg.display, scroll_x : int, scroll_y : int):
-        # if not scroll_x % self.t_width and scroll_x: 
-            # self.optimize(scroll_x, scroll_y)
-        # for layer in self.map_set:
+
+    def render(self, screen : pg.display):
+        self.true_scroll[0] += (self.user.x - self.true_scroll[0] - self.center_x)
+        self.true_scroll[1] += (self.user.y - self.true_scroll[1] - self.center_y)
+        self.scroll_x = int(self.true_scroll[0])
+        self.scroll_y = int(self.true_scroll[1])
+        self.optimize()
         for layer in self.cur_map:
             y = 0
             for tiles in layer:
@@ -113,29 +123,9 @@ class map_renderer():
                     if not tile:
                         x += 1
                         continue
-                    screen.blit(self.tile_set[tile], (x * self.t_width - scroll_x, y * self.t_width - scroll_y))
+                    screen.blit(self.tile_set[tile], (x * self.t_width - self.scroll_x, y * self.t_width - self.scroll_y))
                     x += 1
                 y += 1
-
-    def move_map(self, x_diff : int, y_diff : int):
-        self.x += x_diff
-        # self.temp_x += x_diff
-        self.y += y_diff
-        # self.temp_y += y_diff
-
-if __name__ == '__main__':
-    sc_width = 500
-    sc_height = 500
-
-
-    map_machine = map_renderer('assets//maps//test1.tmx', 'assets//tiles', (0, 0), 64, (sc_width, sc_height))
-    map_machine.x -= 8
-
-    map_machine.y -= 16
-
-    map_machine.optimize()
-
-
 
 
 

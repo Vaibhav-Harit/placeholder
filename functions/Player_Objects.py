@@ -4,17 +4,18 @@ from functions.Helper_Functions import *
 
 class Player(object):
     #initialization, will automatically run when you do a new instance
-    def __init__(self, sprite : pg.image, screen_wh : tuple, health : int, luck : int,  pwr : int, spd : int, defense : int):
+    def __init__(self, sprite : pg.image, screen_wh : tuple, health : int, luck : int, power : int, speed : int, defense : int, Map = None):
         #basic stats
-        self.power = pwr
-        self.speed = spd
-        self.defense = defense
+        self.power : int = power
+        self.speed : int = speed
+        self.defense : int = defense
+
         # setting up health bar
         health_assets = [pg.image.load('assets//interface//player_ui//Healthbar_overlay.png'), pg.image.load('assets//interface//player_ui//Healthbar.png'), pg.image.load('assets//interface//player_ui//Staminabar.png')]
         self.health_bar = Health_Bar(health_assets, health, luck, .2) 
         
         #sprite, height and width
-        self.sprite = sprite
+        self.sprite : pg.image = sprite
         self.char_width = sprite.get_width()
         self.char_height = sprite.get_height()
 
@@ -23,8 +24,10 @@ class Player(object):
         self.x = positon[0]
         self.y = positon[1]
 
-    def render(self, screen : pg.display, scroll_x, scroll_y):
-        screen.blit(self.sprite, (self.x - scroll_x, self.y - scroll_y ))
+        self.map = Map
+
+    def render(self, screen : pg.display):
+        screen.blit(self.sprite, (self.x - self.map.scroll_x, self.y - self.map.scroll_y ))
         self.health_bar.render_bars(screen)
 
     def attack(self, ):
@@ -51,20 +54,20 @@ class Player(object):
 
 class Health_Bar():
     def __init__(self, sprites : list, maxHP : int, maxL : int, recovery_rate : int):
-        self.maxHP = maxHP
+        self.maxHP : int = maxHP
         self.hp = maxHP
         self.display_hp = maxHP #Will gradually catch up with HP to create a smooth effect when you lose health
-        self.maxL = maxL
+        self.maxL : int = maxL
         self.luck = maxL
         self.display_luck = maxL
         self.recovery = 0
-        self.recovery_rate = recovery_rate
+        self.recovery_rate : int = recovery_rate
         self.overlay = sprites[0]
         self.health_bar = sprites[1]
         self.h_width = self.health_bar.get_width()
         self.luck_bar  = sprites[2]
         self.l_width = self.luck_bar.get_width()
-        
+
     def render_bars(self, screen : pg.display):
         if self.maxL > self.luck:
             self.luck += self.recovery
