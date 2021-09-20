@@ -101,8 +101,9 @@ while running:
     screen.fill((0, 0, 0)) #screen color RGB
     dialog('A wizard beckons, "come forth young one", you hesitate, not knowing what will happen if you decline his malicious offer...')
     time_passed = (time.time() - start_time)
-    if time_passed >=  1:
+    if time_passed >= .05:
         time_passed = 0
+        start_time = time.time()
         letters_shown += 1
 
     pg.display.update()
