@@ -37,7 +37,7 @@ rescale = pg.transform.scale
 
 start_img = rescale(imgload('assets//interface//play.png'), (200, 60))
 # attack_img = rescale(imgload('assets//interface//'), (w, h))
-skill_frame_img = rescale(imgload('assets//interface//player_ui//skillframe.png'), (100, 100))
+skill_frame_img = rescale(imgload('assets//interface//skill_frame.png'), (64, 64))
 healthbar_img = rescale(imgload('assets//interface//player_ui//healthbar.png'), (100, 100))
 # level_frame_img = rescale(imgload('assets//interface//')), (w, h))
 # level1_img = rescale(imgload('assets//interface), (w,h))
@@ -51,7 +51,7 @@ musicoff_img = rescale(imgload('assets//interface//music off.png'), (100, 100))
 credits_img = rescale(imgload('assets//interface//credits.png'), (200, 60))
 
 
-test_sword_img = rescale(imgload('assets//test_weapon.png'), (96,96))
+#test_sword_img = rescale(imgload('assets//test_weapon.png'), (96,96))
 
 
 
@@ -70,7 +70,7 @@ musicoff_button = Button(x_center(sc_width, musicon_img.get_width()), 200, music
 credits_button = Button(x_center(sc_width, credits_img.get_width()), 540, credits_img)
 
 
-test_sword = Button(300, 300, test_sword_img)
+#test_sword = Button(300, 300, test_sword_img)
 
 
 
@@ -122,11 +122,12 @@ while running:
         if musicon_button.clicked():
             screen.fill((0, 0, 0))
             musicoff_button.draw()
+            MUSIC = False
 
         if musicoff_button.clicked():
             screen.fill((0, 0, 0))
             musicon_button.draw()
-
+            MUSIC = True
         
 
     #ALL INTERFACE CONVERSIONS AND SPRITE BLITTING HERE
@@ -135,7 +136,7 @@ while running:
             start_button.draw()
             options_button.draw()
             credits_button.draw()
-            test_sword.draw()
+            #test_sword.draw()
 
             start_menu = False
         
