@@ -7,12 +7,10 @@ sc_width = 1300
 sc_height = 700
 screen = pg.display.set_mode([sc_width, sc_height])
 
-# we're testing the chest here as of now, will remove later
-random_x = random.randint(100,1000)
-random_y = random.randint(100,1000)
-cords = ((random_x), (random_y))
+
+
         
-chest1 = chest((cords), pg.image.load('assets//interface//play.png'))
+chest1 = chest((chest_cords), pg.image.load('assets//interface//play.png'))
 
 running = True
 while running:

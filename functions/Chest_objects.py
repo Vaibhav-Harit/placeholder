@@ -2,12 +2,23 @@ import pygame as pg
 import pandas
 import random
 
+chest_cords_list = [
+            (100,100),
+            (300,300),
+            (500,500),
+            (700,700)]
+chest_cords = random.choice(chest_cords_list)
+chest_x = chest_cords_list[0]
+chest_y = chest_cords_list[1]
+
+
 #chest_item class
 class Chest_Item:
     def __init__(self, name, drop_rate, ID):
         self.name = name
         self.drop_rate = drop_rate
         self.ID = ID
+
 
 class chest:
     def __init__(self, pos, sprite):
@@ -18,7 +29,7 @@ class chest:
 
     def spawn(self, screen: pg.display):
         screen.blit(self.img, (self.x, self.y))
-    
+
     #def loot(self):
 
     
